@@ -1,7 +1,12 @@
-variable "vpc_state_path" {
-  description = "Path to the VPC terraform state file"
+variable "aws_region" {
+  description = "AWS region for all resources"
   type        = string
-  default     = "../vpc/terraform.tfstate"
+  default     = "us-east-2"
+}
+
+variable "ami_id" {
+  description = "AMI ID for the EC2 instance"
+  type        = string
 }
 
 variable "vpc_id" {
@@ -9,13 +14,8 @@ variable "vpc_id" {
   type        = string
 }
 
+
 variable "subnet_id" {
   description = "Subnet ID for the EC2 instance"
   type        = string
 }
-
-variable "aws_region" {
-  description = "AWS region for all resources"
-  type        = string
-  default     = "us-east-2"
-} 

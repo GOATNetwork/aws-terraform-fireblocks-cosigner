@@ -1,6 +1,6 @@
 # Create Nitro-capable EC2
 resource "aws_instance" "nitro-mainnet-01" {
-  ami                         = "al2023-ami-2023.6.20241121.0-kernel-6.1-x86_64" # Amazon Linux 2023 AMI 64-bit (x86)
+  ami                         = var.ami_id
   instance_type               = "c5.xlarge"
   iam_instance_profile        = aws_iam_instance_profile.nitro_mainnet_ec2_role_profile.name
   subnet_id                   = var.subnet_id
