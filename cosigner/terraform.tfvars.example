@@ -1,2 +1,6 @@
+# AWS Region
+aws_region = "us-west-2"
+
+# VPC and Subnet Configuration
 vpc_id = "vpc-xxxxxxxxx"
 subnet_id = "subnet-xxxxxxxxx"

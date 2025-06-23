@@ -16,5 +16,6 @@ Before using this Terraform configuration, please ensure the following variables
 
 1. Copy `terraform.tfvars.example` to `terraform.tfvars`
 2. Set the following variables in `terraform.tfvars`:
+   - `aws_region`: AWS region for all resources (default: us-west-2)
    - `vpc_id`: Your VPC ID
    - `subnet_id`: Your Subnet ID

@@ -12,4 +12,10 @@ variable "vpc_id" {
 variable "subnet_id" {
   description = "Subnet ID for the EC2 instance"
   type        = string
+}
+
+variable "aws_region" {
+  description = "AWS region for all resources"
+  type        = string
+  default     = "us-east-2"
 } 
