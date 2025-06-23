@@ -2,7 +2,7 @@
 aws_region = "us-west-2"
 
 # AMI for Amazon Linux 2023 
-ami_id = "ami-06971c49acd687c30"
+ami_id = "ami-05f9478b4deb8d173"
 
 # VPC and Subnet Configuration
 vpc_id = "vpc-xxxxxxxxx"

@@ -112,7 +112,6 @@ data "aws_iam_policy_document" "kms_policy" {
       type        = "AWS"
       identifiers = [
         "arn:aws:iam::590184059249:root",
-        "arn:aws:iam::590184059249:user/Justor"
       ]
     }
   }
