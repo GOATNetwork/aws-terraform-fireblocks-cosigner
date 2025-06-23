@@ -20,7 +20,7 @@ resource "aws_security_group" "nitro-instance-sg" {
   }
   ingress {
     cidr_blocks = [
-      "0.0.0.0/0"
+      "12.0.0.0/16"
     ]
     from_port = 4001
     to_port   = 4001
@@ -28,7 +28,7 @@ resource "aws_security_group" "nitro-instance-sg" {
   }
   ingress {
     cidr_blocks = [
-      "0.0.0.0/0"
+      "12.0.0.0/16"
     ]
     from_port = 50051
     to_port   = 50051
