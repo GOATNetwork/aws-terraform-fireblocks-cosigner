@@ -49,7 +49,6 @@ data "aws_iam_policy_document" "nitro_mainnet_bucket_policy" {
 
       values = [
         "arn:aws:iam::590184059249:role/${aws_iam_role.nitro_mainnet_ec2_role.name}",
-        "arn:aws:iam::590184059249:user/Justor"
       ]
     }
   }
