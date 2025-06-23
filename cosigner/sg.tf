@@ -1,7 +1,7 @@
 resource "aws_security_group" "nitro-instance-sg" {
   name        = "nitro-instance-sg"
   description = "Security group for Nitro-capable EC2 instance"
-  vpc_id      = data.terraform_remote_state.self-vpc.outputs.dev-goatnetwork-vpc-id
+  vpc_id      = var.vpc_id
   ingress {
     cidr_blocks = [
       "0.0.0.0/0"

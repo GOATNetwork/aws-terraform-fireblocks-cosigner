@@ -1,11 +1,11 @@
 # Create Nitro-capable EC2
 resource "aws_instance" "nitro-mainnet-01" {
-  ami                         = data.terraform_remote_state.shared.outputs.ami_al2023-20241121-x86_64-id # Amazon Linux 2023 AMI 64-bit (x86)
+  ami                         = "al2023-ami-2023.6.20241121.0-kernel-6.1-x86_64" # Amazon Linux 2023 AMI 64-bit (x86)
   instance_type               = "c5.xlarge"
   iam_instance_profile        = aws_iam_instance_profile.nitro_mainnet_ec2_role_profile.name
-  subnet_id                   = data.terraform_remote_state.self-vpc.outputs.dev-goatnetwork-vpc-subnet-private1-us-east-2a-id
+  subnet_id                   = var.subnet_id
   vpc_security_group_ids      = [aws_security_group.nitro-instance-sg.id]
-  key_name                    = "stephen-relayer-prod"
+  key_name                    = "relayer-prod"
   depends_on = [
     aws_security_group.nitro-instance-sg
   ]
