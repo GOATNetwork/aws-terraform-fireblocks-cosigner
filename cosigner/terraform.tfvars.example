@@ -1,6 +1,9 @@
 # AWS Region
 aws_region = "us-west-2"
 
+# AWS Account ID
+aws_account_id = "590184059249"
+
 # AMI for Amazon Linux 2023 
 ami_id = "ami-05f9478b4deb8d173"
 

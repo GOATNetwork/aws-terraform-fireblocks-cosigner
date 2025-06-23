@@ -9,7 +9,6 @@ resource "aws_security_group" "nitro-instance-sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-
   }
   ingress {
     cidr_blocks = [

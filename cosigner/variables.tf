@@ -14,8 +14,13 @@ variable "vpc_id" {
   type        = string
 }
 
-
 variable "subnet_id" {
   description = "Subnet ID for the EC2 instance"
   type        = string
+}
+
+variable "aws_account_id" {
+  description = "AWS Account ID"
+  type        = string
+  default     = "590184059249"
 }

@@ -39,8 +39,8 @@ data "aws_iam_policy_document" "nitro_mainnet_bucket_policy" {
     ]
 
     resources = [
-      "arn:aws:s3:::${aws_s3_bucket.nitro_mainnet_01_bucket.id}",
-      "arn:aws:s3:::${aws_s3_bucket.nitro_mainnet_01_bucket.id}/*",
+      "arn:aws:s3:::${aws_s3_bucket.nitro_mainnet_bucket.id}",
+      "arn:aws:s3:::${aws_s3_bucket.nitro_mainnet_bucket.id}/*",
     ]
 
     condition {
@@ -48,13 +48,24 @@ data "aws_iam_policy_document" "nitro_mainnet_bucket_policy" {
       variable = "aws:PrincipalArn"
 
       values = [
-        "arn:aws:iam::590184059249:role/${aws_iam_role.nitro_mainnet_ec2_role.name}",
+        "arn:aws:iam::${var.aws_account_id}:role/${aws_iam_role.nitro_mainnet_ec2_role.name}",
       ]
     }
   }
 }
 
 data "aws_iam_policy_document" "kms_policy" {
+  statement {
+    sid       = "Enable IAM User Permissions"
+    effect    = "Allow"
+    principals {
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::${var.aws_account_id}:root"]
+    }
+    actions   = ["kms:*"]
+    resources = ["*"]
+  }
+
   statement {
     sid       = "Enable enclave data processing for specific role"
     effect    = "Allow"
@@ -72,7 +83,7 @@ data "aws_iam_policy_document" "kms_policy" {
     principals {
       type        = "AWS"
       identifiers = [
-        "arn:aws:iam::590184059249:role/${aws_iam_role.nitro_mainnet_ec2_role.name}"
+        "arn:aws:iam::${var.aws_account_id}:role/${aws_iam_role.nitro_mainnet_ec2_role.name}"
       ]
     }
     condition {
@@ -90,27 +101,7 @@ data "aws_iam_policy_document" "kms_policy" {
     principals {
       type        = "AWS"
       identifiers = [
-        "arn:aws:iam::590184059249:role/${aws_iam_role.nitro_mainnet_ec2_role.name}"
-      ]
-    }
-  }
-
-  statement {
-    sid       = "Allow policy management to root user"
-    effect    = "Allow"
-    actions   = [
-      "kms:DescribeKey",
-      "kms:GetKeyPolicy",
-      "kms:PutKeyPolicy",
-      "kms:CreateAlias",
-      "kms:GetKeyRotationStatus",
-      "kms:ListResourceTags"
-    ]
-    resources = ["*"]
-    principals {
-      type        = "AWS"
-      identifiers = [
-        "arn:aws:iam::590184059249:root",
+        "arn:aws:iam::${var.aws_account_id}:role/${aws_iam_role.nitro_mainnet_ec2_role.name}"
       ]
     }
   }
@@ -135,7 +126,7 @@ resource "aws_iam_role_policy" "inline_policy" {
           "s3:ListBucket",
           "s3:GetBucketLocation"
         ]
-        Resource = "arn:aws:s3:::${aws_s3_bucket.nitro_mainnet_01_bucket.id}"
+        Resource = "arn:aws:s3:::${aws_s3_bucket.nitro_mainnet_bucket.id}"
       },
       {
         Sid    = "WritePermissionsOnBucket"
@@ -147,7 +138,7 @@ resource "aws_iam_role_policy" "inline_policy" {
           "s3:GetObjectAcl",
           "s3:DeleteObject"
         ]
-        Resource = "arn:aws:s3:::${aws_s3_bucket.nitro_mainnet_01_bucket.id}/*"
+        Resource = "arn:aws:s3:::${aws_s3_bucket.nitro_mainnet_bucket.id}/*"
       },
       {
         Sid    = "AccessToTheKey"
@@ -162,7 +153,7 @@ resource "aws_iam_role_policy" "inline_policy" {
           "kms:GenerateRandom",
           "kms:GetKeyPolicy"
         ]
-        Resource = "arn:aws:kms:us-west-2:590184059249:key/${aws_kms_key.nitro-mainnet-01-kms.id}"
+        Resource = "arn:aws:kms:${var.aws_region}:${var.aws_account_id}:key/${aws_kms_key.nitro-mainnet-01-kms.id}"
       }
     ]
   })
