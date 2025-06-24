@@ -31,7 +31,7 @@ resource "aws_instance" "nitro-mainnet-01" {
   iam_instance_profile        = aws_iam_instance_profile.nitro_mainnet_ec2_role_profile.name
   subnet_id                   = var.subnet_id
   vpc_security_group_ids      = [aws_security_group.nitro-instance-sg.id]
-  key_name                    = "relayer-prod"
+  key_name                    = var.key_name
   depends_on = [
     aws_security_group.nitro-instance-sg
   ]

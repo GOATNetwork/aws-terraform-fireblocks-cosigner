@@ -37,3 +37,9 @@ variable "internal_cidr_blocks" {
   type        = list(string)
   default     = ["12.0.0.0/16"]
 }
+
+variable "key_name" {
+  description = "Name of the EC2 key pair for SSH access"
+  type        = string
+  default     = "cosigner-nitro-prod"
+}
