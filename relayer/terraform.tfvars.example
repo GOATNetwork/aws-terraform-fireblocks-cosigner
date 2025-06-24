@@ -1,0 +1,19 @@
+# AWS Region
+aws_region = "us-west-2"
+
+# AWS Account ID
+aws_account_id = "590184059249"
+
+# AMI Configuration - Dynamic Ubuntu 22.04
+ami_name_pattern = "ubuntu/images/hvm-ssd/ubuntu-22.04-amd64-server-*"
+ami_owner = "099720109477"
+
+# VPC and Subnet Configuration
+vpc_id = "vpc-xxxxxxxxx"
+subnet_id = "subnet-xxxxxxxxx"
+
+# Security Group Internal CIDR Blocks
+internal_cidr_blocks = ["12.0.0.0/8"]
+
+# EC2 Key Pair Configuration
+key_name = "cosigner-nitro-prod"

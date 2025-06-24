@@ -7,13 +7,13 @@ variable "aws_region" {
 variable "ami_name_pattern" {
   description = "Pattern to match AMI name for filtering"
   type        = string
-  default     = "al2023-ami-*-x86_64"
+  default     = "ubuntu/images/hvm-ssd/ubuntu-22.04-amd64-server-*"
 }
 
 variable "ami_owner" {
   description = "Owner of the AMI"
   type        = string
-  default     = "amazon"
+  default     = "099720109477"
 }
 
 variable "vpc_id" {
@@ -41,5 +41,5 @@ variable "internal_cidr_blocks" {
 variable "key_name" {
   description = "Name of the EC2 key pair for SSH access"
   type        = string
-  default     = "cosigner-nitro-prod"
+  default     = "relayer-prod"
 }
