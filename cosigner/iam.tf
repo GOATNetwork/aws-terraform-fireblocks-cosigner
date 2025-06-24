@@ -1,6 +1,6 @@
 # create an IAM role
 resource "aws_iam_role" "nitro_mainnet_ec2_role" {
-  name = "nitro-mainnet-ec2-role"
+  name = "nitro-mainnet-ec2-role-${random_id.resource_suffix.hex}"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
