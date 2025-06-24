@@ -4,9 +4,16 @@ variable "aws_region" {
   default     = "us-east-2"
 }
 
-variable "ami_id" {
-  description = "AMI ID for the EC2 instance"
+variable "ami_name_pattern" {
+  description = "Pattern to match AMI name for filtering"
   type        = string
+  default     = "al2023-ami-*-x86_64"
+}
+
+variable "ami_owner" {
+  description = "Owner of the AMI"
+  type        = string
+  default     = "amazon"
 }
 
 variable "vpc_id" {

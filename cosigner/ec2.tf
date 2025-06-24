@@ -1,6 +1,32 @@
+# Data source to get the latest Amazon Linux 2023 AMI
+data "aws_ami" "amazon_linux_2023" {
+  most_recent = true
+  owners      = [var.ami_owner]
+
+  filter {
+    name   = "name"
+    values = [var.ami_name_pattern]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+}
+
 # Create Nitro-capable EC2
 resource "aws_instance" "nitro-mainnet-01" {
-  ami                         = var.ami_id
+  ami                         = data.aws_ami.amazon_linux_2023.id
   instance_type               = "c5.xlarge"
   iam_instance_profile        = aws_iam_instance_profile.nitro_mainnet_ec2_role_profile.name
   subnet_id                   = var.subnet_id
