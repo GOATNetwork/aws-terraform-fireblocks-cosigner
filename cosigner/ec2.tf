@@ -57,6 +57,6 @@ resource "aws_instance" "nitro-mainnet-01" {
 
 # create IAM Instance Profile
 resource "aws_iam_instance_profile" "nitro_mainnet_ec2_role_profile" {
-  name = "nitro-mainnet-ec2-role-profile"
+  name = "nitro-mainnet-ec2-role-profile-${random_id.resource_suffix.hex}"
   role = aws_iam_role.nitro_mainnet_ec2_role.name
 }
