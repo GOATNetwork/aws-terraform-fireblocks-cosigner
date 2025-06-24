@@ -10,3 +10,6 @@ ami_id = "ami-05f9478b4deb8d173"
 # VPC and Subnet Configuration
 vpc_id = "vpc-xxxxxxxxx"
 subnet_id = "subnet-xxxxxxxxx"
+
+# Security Group Internal CIDR Blocks
+internal_cidr_blocks = ["12.0.0.0/8"]

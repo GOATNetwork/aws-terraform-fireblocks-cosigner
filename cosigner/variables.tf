@@ -24,3 +24,9 @@ variable "aws_account_id" {
   type        = string
   default     = "590184059249"
 }
+
+variable "internal_cidr_blocks" {
+  description = "CIDR blocks for internal services (ports 4001, 50051)"
+  type        = list(string)
+  default     = ["12.0.0.0/16"]
+}
