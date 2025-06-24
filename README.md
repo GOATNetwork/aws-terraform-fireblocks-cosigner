@@ -1,11 +1,9 @@
 # aws-terraform-fireblocks-cosigner
 
-Part1:
 - define IAM role & policy
 - create S3 bucket & policy
 - create KMS key & policy
 
-Part2:
 - create EC2 instance
 - create IAM role & policy
 - create security group
@@ -21,3 +19,4 @@ Before using this Terraform configuration, please ensure the following variables
    - `ami_id`: AMI ID for the EC2 instance
    - `vpc_id`: Your VPC ID
    - `subnet_id`: Your Subnet ID
+   - `internal_cidr_blocks`: Security Group Internal CIDR Blocks
