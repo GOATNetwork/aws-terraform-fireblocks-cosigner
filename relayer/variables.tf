@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "ami_name_pattern" {
   description = "Pattern to match AMI name for filtering"
   type        = string
-  default     = "ubuntu/images/hvm-ssd/ubuntu-22.04-amd64-server-*"
+  default     = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
 }
 
 variable "ami_owner" {
