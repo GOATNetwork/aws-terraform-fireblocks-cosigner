@@ -19,8 +19,20 @@ resource "aws_security_group" "relayer-server-mainnet-sg" {
     }
     ingress {
         cidr_blocks = var.internal_cidr_blocks
+        from_port = 4001
+        protocol = "udp"
+        to_port = 4001
+    }
+    ingress {
+        cidr_blocks = var.internal_cidr_blocks
         from_port = 9009
         protocol = "tcp"
+        to_port = 9009
+    }
+    ingress {
+        cidr_blocks = var.internal_cidr_blocks
+        from_port = 9009
+        protocol = "udp"
         to_port = 9009
     }
     egress {
