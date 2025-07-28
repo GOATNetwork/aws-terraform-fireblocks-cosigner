@@ -25,14 +25,9 @@ variable "subnet_id" {
   description = "Subnet ID for the EC2 instance"
   type        = string
 }
-variable "internal_cidr_blocks" {
-  description = "CIDR blocks for internal services (ports 4001, 50051)"
-  type        = list(string)
-  default     = ["12.0.0.0/16"]
-}
 
 variable "key_name" {
   description = "Name of the EC2 key pair for SSH access"
   type        = string
-  default     = "relayer-prod"
+  default     = "rpc-prod"
 }

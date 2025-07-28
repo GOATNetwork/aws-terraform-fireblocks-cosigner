@@ -9,8 +9,5 @@ ami_owner = "099720109477"
 vpc_id = "vpc-xxxxxxxxx"
 subnet_id = "subnet-xxxxxxxxx"
 
-# Security Group Internal CIDR Blocks
-internal_cidr_blocks = ["12.0.0.0/8"]
-
 # EC2 Key Pair Configuration
-key_name = "relayer-prod"
+key_name = "rpc-prod"
