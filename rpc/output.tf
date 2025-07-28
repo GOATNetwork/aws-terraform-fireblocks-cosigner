@@ -1,3 +1,3 @@
 output "instance_ip_goat" {
-  value = aws_instance.rpc-goat.public_ip
+  value = aws_eip.rpc-goat-eip.public_ip
 }
