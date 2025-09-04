@@ -22,6 +22,11 @@ data "aws_ami" "amazon_linux_2023" {
     name   = "root-device-type"
     values = ["ebs"]
   }
+
+  filter {
+    name   = "state"
+    values = ["available"]
+  }
 }
 
 # Create Nitro-capable EC2
