@@ -1,13 +1,13 @@
 variable "aws_region" {
   description = "AWS region for all resources"
   type        = string
-  default     = "us-west-2"
+  default     = "us-west-1"
 }
 
 variable "ami_name_pattern" {
   description = "Pattern to match AMI name for filtering"
   type        = string
-  default     = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
+  default     = "ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"
 }
 
 variable "ami_owner" {
