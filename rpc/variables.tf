@@ -31,3 +31,27 @@ variable "key_name" {
   type        = string
   default     = "rpc-prod"
 }
+
+variable "goat_volume_size" {
+  description = "Size in GB for the goat EBS volume"
+  type        = number
+  default     = 400
+}
+
+variable "goat_snapshot_id" {
+  description = "Snapshot ID for the goat EBS volume"
+  type        = string
+  default     = "snap-0d1017cbc454ba3d8"
+}
+
+variable "geth_volume_size" {
+  description = "Size in GB for the geth EBS volume"
+  type        = number
+  default     = 200
+}
+
+variable "geth_snapshot_id" {
+  description = "Snapshot ID for the geth EBS volume"
+  type        = string
+  default     = "snap-0f376dc5fc9d0df2b"
+}
