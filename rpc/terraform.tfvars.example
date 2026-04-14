@@ -11,3 +11,11 @@ subnet_id = "subnet-xxxxxxxxx"
 
 # EC2 Key Pair Configuration
 key_name = "rpc-prod"
+
+# Goat EBS Volume Configuration
+goat_volume_size = 400
+goat_snapshot_id = "snap-xxxxxxxxx"
+
+# Geth EBS Volume Configuration
+geth_volume_size = 200
+geth_snapshot_id = "snap-xxxxxxxxx"
